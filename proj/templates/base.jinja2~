@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Trending tweets to wiki</title>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      {% for hashtag in hashtags_dict.keys() %}
+      <div class="row">
+	<div class="alert alert-info col-sm-6" role="alert">
+	  <h4 class="alert-heading">tweet {{ loop.index }} </h4>
+	  <hr>
+	  <p>{{ hashtag }}</p>
+	</div>
+	<div class="alert alert-info col-sm-6" role="alert">
+	  <h4 class="alert-heading">{{ hashtags_dict[hashtag]['name'] }}</h4>
+	  <p>{{ hashtags_dict[hashtag]['summary'] }}</p>
+	  <hr>
+	  <p><a href="{{ hashtags_dict[hashtag]['url'] }}">{{ hashtags_dict[hashtag]['url'] }}</a></p>
+	</div>
+      </div>
+      {% endfor %}
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
